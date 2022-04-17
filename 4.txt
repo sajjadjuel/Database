@@ -1,0 +1,22 @@
+Data Constraints:
+*****************
+1.Create Table Department(deptid number(3) primary key,dept_name varchar(6) check(dept_name='CSE' or dept_name='EEE' or dept_name='BBA' or dept_name='Eng' or dept_name='Ach') ,budget number(6) default 0);
+
+2. Create Table Course (crs_id number(4) primary key, crs_name varchar2(20) not null, deptid number(3));
+  Alter Table Course add constraint fk foreign key(deptid) references Department(deptid);
+____________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Edit Constraints:
+=================
+
+1. Create Table Student(s_id number,s_name varchar2(20),phone number,address varchar2(50),email varchar2(30),credit_completed number(3),course_completed number(2),CGPA number(3,2),deptno number(5),gender varchar2(6));
+2. Alter Table Student add constraint s_id primary key(s_id);
+3. Alter Table Student modify s_name varchar2(20) not null;
+4. Alter Table Student modify email varchar2(30) unique;
+5. Alter Table Student add constraint std_dptno foreign key(deptno) references department(deptid) ;
+6. Alter Table Student add constraint std_gen check (gender in ('M','f'));
+7. Alter Table Student disable constraint s_id;
+8. Alter Table Student drop constraint std_gen ;
+9. Select constraint_name,column_name from user_cons_columns where table_name='STUDENT';
+10.Alter Table Student enable constraint s_id ;
+

@@ -1,0 +1,27 @@
+	 SEQUENCE:
+	===========
+1. CREATE sequence DEPT_ID_SEQ INCREMENT BY 10 START WITH 60 MAXVALUE 200 NOCYCLE;
+
+2. SELECT sequence_name, min_value, max_value,increment_by,last_number FROM user_sequences;
+
+3. INSERT into DEPT (deptno,dname,loc) values(DEPT_ID_SEQ.nextval,'ACCOUNTING','DHAKA') ;
+
+4.  SELECT DEPT_ID_SEQ.CURRVAL  from dual;
+
+5. SELECT DEPT_ID_SEQ.NEXTVAL  from dual;
+
+
+
+   
+	 User Access Control:
+	=======================
+   
+1. CREATE user Rahul IDENTIFIED by ret23erz;
+   
+2. CREATE role account;
+
+3. GRANT create table, create view, create sequence to manager;
+
+4. GRANT account to Rahul;
+
+5. ALTER USER Rahul IDENTIFIED BY rec34tg;

@@ -1,0 +1,12 @@
+1. select * from emp;
+2. select * from dept;
+3. select * from salgrade;
+4. select ename from emp;
+5. select losal from salgrade;
+6. select ename,sal from emp;
+7. select ename, deptno from emp;
+8. select sal, comm, (sal+1200)-(sal*34) from emp;
+9. select ename AS "Employee Name" from emp;
+10. select DISTINCT deptno from emp;
+11. select dname || loc  from dept;
+12. select ename ||' '||'gets paid '||' '||sal   from emp;

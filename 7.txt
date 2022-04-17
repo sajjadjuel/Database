@@ -1,0 +1,34 @@
+1. Displaying the name of all the employees who work in DALLAS.
+
+   SELECT ename FROM emp WHERE deptno=(SELECT deptno FROM dept WHERE loc='DALLAS');
+
+
+2. Write a query to display the employee name, department number, and department name for all employees.
+
+  SELECT EMP.ename ,EMP.deptno, DEPT.dname FROM emp EMP JOIN dept DEPT ON EMP.deptno = DEPT.deptno;
+
+
+3. Display the employee names and department names of only those employees whose salary is greater than 3000.
+
+  SELECT EMP.ename , DEPT.dname FROM emp EMP JOIN dept DEPT ON EMP.deptno = DEPT.deptno WHERE EMP.sal>3000;
+
+
+4. Display the name of all the employees who joined before their manager.
+
+  SELECT ename FROM emp WHERE hiredate<(SELECT hiredate FROM emp WHERE job='MANAGER' AND ROWNUM =1);
+
+
+5. Display the name of all the employees and their respective manager. If an employee does not have a manger display ‘NO MANAGER’.
+
+  SELECT EMP.ename AS "Employee", MGR.ename AS "Manager" FROM emp EMP JOIN emp MGR ON EMP.mgr= MGR.empno(+);
+
+
+6. Display the name and salary grades of only grade 3 employees
+
+  SELECT ename AS "Employee Name", sal AS "Salary" FROM emp 
+  WHERE sal > (SELECT losal FROM salgrade WHERE grade='3') AND sal < (SELECT hisal FROM salgrade WHERE grade='3');
+
+
+7. Write a query to display the name and department name for all employees .Make sure that the departments that no employee works in are also displayed.
+
+  SELECT emp.ename, dept.deptno FROM emp, dept WHERE emp.deptno = dept.deptno OR emp.deptno=null;
